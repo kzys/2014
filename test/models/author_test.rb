@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class AuthorTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'An author has posts' do
+    alice = Author.new
+    assert_equal [], alice.posts
+  end
 end
