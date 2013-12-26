@@ -6,7 +6,8 @@ class PostTest < ActiveSupport::TestCase
     assert_equal nil, post.author
 
     alice = Author.new
-    alice.save
+    alice.password = alice.password_confirmation = 'passw0rd'
+    assert alice.save
 
     post.author_id = alice.id
     assert_equal alice, post.author

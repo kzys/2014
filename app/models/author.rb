@@ -1,4 +1,5 @@
 class Author < ActiveRecord::Base
+  has_secure_password
   has_many :posts
 
   def self.create_remember_token

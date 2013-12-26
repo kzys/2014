@@ -3,6 +3,7 @@ require 'test_helper'
 class AuthorsControllerTest < ActionController::TestCase
   setup do
     @author = authors(:one)
+    @author.password = @author.password_confirmation = 'passw0rd'
   end
 
   test "should get index" do
@@ -18,7 +19,11 @@ class AuthorsControllerTest < ActionController::TestCase
 
   test "should create author" do
     assert_difference('Author.count') do
-      post :create, author: { email: @author.email, name: @author.name }
+      post :create, author: {
+        email: @author.email,
+        name: @author.name,
+        password: 'passw0rd', password_confirmation: 'passw0rd'
+      }
     end
 
     assert_redirected_to author_path(assigns(:author))
