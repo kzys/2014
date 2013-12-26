@@ -46,6 +46,7 @@ end
 
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
+gem 'kramdown'
 
 group :test do
   gem 'factory_girl_rails'
