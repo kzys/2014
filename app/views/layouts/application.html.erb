@@ -7,8 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <%= link_to 'Blog14', posts_path, :class => 'navbar-brand' %>
 
-<%= yield %>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% if controller.class != SessionsController %>
+        <% if author = current_author %>
+        <li><%= link_to author.name, author %></li>
+        <li><%= link_to 'Logout', logout_path %></li>
+        <% else %>
+        <li><%= link_to 'Login', login_path %></li>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <% flash.keys.each do |k| %>
+    <div class="alert alert-<%= k %>"><%= flash[k] %></div>
+    <% end %>
+
+    <%= yield %>
+  </div>
 
 </body>
 </html>
