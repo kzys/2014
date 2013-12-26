@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131225131724) do
+ActiveRecord::Schema.define(version: 20131226124029) do
 
   create_table "authors", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
+
+  add_index "authors", ["remember_token"], name: "index_authors_on_remember_token"
 
   create_table "posts", force: true do |t|
     t.string   "title"
