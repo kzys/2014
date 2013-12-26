@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
     author = Author.find_by(email: params[:session][:email].downcase)
-    if author
+    if author and author.authenticate(params[:session][:password])
       flash[:success] = "Welcome #{author.name}"
 
       token = Author.create_remember_token
