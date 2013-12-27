@@ -7,6 +7,12 @@ Blog14::Application.routes.draw do
   match '/login', to: 'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'get'
 
+  begin
+    prefix = if Blog14::YEARLY_BLOG then 'posts' else 'posts/:year' end
+    get "#{prefix}/:month/:day/:id" => 'posts#show', as: :permalink
+    get "#{prefix}/:month" => 'posts#monthly_index'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

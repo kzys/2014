@@ -10,6 +10,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find_by(id: params[:id])
+    assert_date(@post.created_at, params)
   end
 
   # GET /posts/new
@@ -71,5 +73,15 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :content)
+    end
+
+    def assert_date(date, params)
+      %w(year month day).map do |s|
+        s.to_sym
+      end.each do |symbol|
+        if params[symbol] && params[symbol].to_i != date.send(symbol)
+          raise ActiveRecord::RecordNotFound.new("Couldn't find Post with id=#{@post.id} and #{symbol}=#{params[symbol]}")
+        end
+      end
     end
 end
