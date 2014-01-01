@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="col-md-8">
+  <article>
+    <h2><%= @post.title %></h2>
+    <div><%= raw @post.content_html %></div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @post.author_id %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <% if @post.author == current_author %>
+    <div class="btn-group">
+      <%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-sm btn-primary' %>
+      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger' %>
+    </div>
+    <% end %>
+  </article>
+</div>
