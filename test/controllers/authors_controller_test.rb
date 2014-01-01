@@ -44,8 +44,8 @@ class AuthorsControllerTest < ActionController::TestCase
     assert_redirected_to author_path(assigns(:author))
   end
 
-  test "should destroy author" do
-    assert_difference('Author.count', -1) do
+  test "failed to destroy an arbitrary author" do
+    assert_difference('Author.count', 0) do
       delete :destroy, id: @author
     end
 

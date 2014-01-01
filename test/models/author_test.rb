@@ -2,8 +2,9 @@ require 'test_helper'
 
 class AuthorTest < ActiveSupport::TestCase
   test 'An author has posts' do
-    alice = Author.new
-    assert_equal [], alice.posts
+    author = FactoryGirl.create(:author)
+    assert_equal false, author.admin?
+    assert_equal [], author.posts
   end
 
   test 'create_remember_token returns a random token' do
