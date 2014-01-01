@@ -31,16 +31,16 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should get edit" do
     get :edit, id: @post
-    assert_response :success
+    assert_redirected_to posts_path
   end
 
   test "should update post" do
     patch :update, id: @post, post: { author_id: @post.author_id, content: @post.content, title: @post.title }
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to posts_path
   end
 
   test "should destroy post" do
-    assert_difference('Post.count', -1) do
+    assert_difference('Post.count', 0) do
       delete :destroy, id: @post
     end
 
