@@ -3,10 +3,15 @@ module SessionsHelper
     token = cookies.permanent[:remember_token]
 
     if token
-      Author.find_by(remember_token: Author.token_digest(token))
+      @current_author ||=
+        Author.find_by(remember_token: Author.token_digest(token))
     else
       nil
     end
+  end
+
+  def current_author=(author)
+    @current_author = author
   end
 
   def logout
