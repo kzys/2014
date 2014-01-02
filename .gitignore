@@ -20,3 +20,6 @@
 
 # SimpleCov
 /coverage
+
+# rake assets:precompile
+/public/assets/
