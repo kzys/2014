@@ -3,6 +3,8 @@ require 'test_helper'
 class PostsControllerTest < ActionController::TestCase
   setup do
     @post = posts(:one)
+    @post.author = FactoryGirl.create(:author)
+    @post.save
   end
 
   test "should get index" do

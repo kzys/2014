@@ -17,3 +17,6 @@
 
 # Emacs
 *~
+
+# SimpleCov
+/coverage
