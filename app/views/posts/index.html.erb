@@ -2,8 +2,7 @@
 <div class="col-md-8">
 <% @posts.each do |post| %>
 <article>
-  <h2><%= link_to_post post.title, post %></h2>
-  <div><%= raw post.content_html %></div>
+  <%= render 'article', :post => post %>
 
   <% if post.author == current_author %>
   <div class="btn-group">

@@ -3,11 +3,18 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= yield(:title) || 'Blog14' %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+  <% if controller.class == PostsController %>
+  <%= stylesheet_link_tag "posts", media: "all", "data-turbolinks-track" => true %>
+  <% else %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <% end %>
+
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if current_author %>
   <nav class="navbar navbar-default">
     <%= link_to 'Blog14', posts_path, :class => 'navbar-brand' %>
 
@@ -25,6 +32,7 @@
       </ul>
     </div>
   </nav>
+  <% end %>
 
   <div class="container">
 
