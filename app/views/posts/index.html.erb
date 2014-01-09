@@ -4,7 +4,7 @@
 <article>
   <%= render 'article', :post => post %>
 
-  <% if post.author == current_author %>
+  <% if post.author and post.author == current_author %>
   <div class="btn-group">
     <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-sm btn-primary' %>
     <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger' %>
