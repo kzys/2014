@@ -34,14 +34,22 @@
   </nav>
   <% end %>
 
-  <div class="container">
-
+  <div id="flash">
     <% flash.keys.each do |k| %>
     <div class="alert alert-<%= k %>"><%= flash[k] %></div>
     <% end %>
-
-    <%= yield %>
   </div>
+  <%= yield %>
+  <footer>
+    <div class="container">
+      <p>
+        Powered by
+        <a href="http://rubyonrails.org/">Rails</a>
+        <%= Rails::VERSION::STRING %> and
+        <a href="https://www.ruby-lang.org/">Ruby</a> <%= RUBY_VERSION %>
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
