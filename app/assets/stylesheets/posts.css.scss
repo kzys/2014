@@ -71,6 +71,19 @@ article {
     p {
         line-height: 1.5;
     }
+
+    blockquote {
+        margin: 0 -1em;
+        padding: 0 1em;
+        overflow: hidden;
+        background: #ffc;
+    }
+    blockquote:before {
+        content: "\201C";
+        position: absolute;
+        margin-left: -0.4em;
+        font: 2em/1 Georgia serif;
+    }
 }
 
 article + article {
