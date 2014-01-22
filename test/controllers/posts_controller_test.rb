@@ -13,11 +13,6 @@ class PostsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:posts)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create post" do
     assert_difference('Post.count') do
       post :create, post: { author_id: @post.author_id, content: @post.content, title: @post.title }
