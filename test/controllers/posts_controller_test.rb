@@ -13,13 +13,13 @@ class PostsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:posts)
   end
 
-  test "should create post" do
-    assert_difference('Post.count') do
-      post :create, post: { author_id: @post.author_id, content: @post.content, title: @post.title }
-    end
+  # test "should create post" do
+  #   assert_difference('Post.count') do
+  #     post :create, post: { author_id: @post.author_id, content: @post.content, title: @post.title }
+  #   end
 
-    assert_redirected_to post_path(assigns(:post))
-  end
+  #   assert_redirected_to post_path(assigns(:post))
+  # end
 
   test "should show post" do
     get :show, id: @post
