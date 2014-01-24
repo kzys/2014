@@ -30,7 +30,12 @@ a:hover {
     margin: 0 auto;
 }
 
-footer {
+#flash, #posts {
+    overflow: hidden;
+    background: #fff;
+}
+
+header, footer {
     padding: 1em 0;
     background: #f0f0f0;
 
@@ -43,11 +48,6 @@ footer {
     a {
         color: inherit !important;
     }
-}
-
-#flash, #posts {
-    overflow: hidden;
-    background: #fff;
 }
 
 article {
