@@ -1,15 +1,8 @@
 <% provide(:title, Author.all.map do |author| author.name end.join(', ')) %>
-<div id="posts"><div class="container">
-<% @posts.each do |post| %>
-<article>
-  <%= render 'post', :post => post %>
-
-  <% if post.author and post.author == current_author %>
-  <div class="btn-group">
-    <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-sm btn-primary' %>
-    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger' %>
+<div id="posts">
+  <div class="container">
+    <% @posts.each do |post| %>
+    <article><%= render 'post', :post => post %></article>
+    <% end %>
   </div>
-  <% end %>
-</article>
-<% end %>
-</div></div>
+</div>
