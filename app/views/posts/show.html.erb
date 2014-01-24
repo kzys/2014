@@ -4,7 +4,7 @@
 
 <div id="posts"><div class="container">
   <article>
-    <%= render 'article', :post => @post %>
+    <%= render 'post', :post => @post %>
 
     <% if @post.author == current_author %>
     <div class="btn-group">

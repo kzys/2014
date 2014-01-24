@@ -2,7 +2,7 @@
 <div id="posts"><div class="container">
 <% @posts.each do |post| %>
 <article>
-  <%= render 'article', :post => post %>
+  <%= render 'post', :post => post %>
 
   <% if post.author and post.author == current_author %>
   <div class="btn-group">
