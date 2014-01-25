@@ -31,4 +31,11 @@ describe Post do
       end
     end
   end
+
+  describe 'known languages' do
+    subject { Post::CommonLanguages }
+
+    it { should include('en') }
+    it { should include('ja') }
+  end
 end
