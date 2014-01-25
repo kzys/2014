@@ -14,6 +14,6 @@ class Post < ActiveRecord::Base
 
   private
   def set_default_values
-    self.language = ISO_639.find_by_english_name('English').alpha3
+    self.language ||= ISO_639.find_by_english_name('English').alpha3
   end
 end

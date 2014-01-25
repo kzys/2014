@@ -24,6 +24,11 @@ describe Post do
         @post.author = FactoryGirl.create(:author)
       }
       it { should be_valid }
+
+      it "shouldn't be overridden" do
+        @post.save
+        expect(Post.find(@post.id).language).to eq('jpn')
+      end
     end
   end
 end
