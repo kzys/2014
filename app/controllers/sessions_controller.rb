@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       author.update_attribute(:remember_token, Author.token_digest(token))
       @current_author = author
 
-      redirect_to author
+      redirect_to new_post_path
     else
       flash[:danger] = 'Invalid email/password combination'
       render 'new'

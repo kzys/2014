@@ -22,8 +22,6 @@ describe PostsController do
         fill_in 'Email', with: author.email
         fill_in 'Password', with: author.password
         click_button 'Login'
-
-        visit new_post_path
       }
       it { should have_content 'New post' }
       it { should have_content 'English' }
