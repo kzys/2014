@@ -3,6 +3,7 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   test 'A post has an author' do
     post = Post.new
+    post.language = 'en'
     assert_equal nil, post.author
 
     alice = Author.new
