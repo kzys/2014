@@ -12,14 +12,7 @@ Blog14::Application.routes.draw do
     get "#{prefix}/:month/:day/:id" => 'posts#show', as: :permalink
     get "#{prefix}/:month" => 'posts#monthly_index'
   end
-
-  match '/', to: 'posts#index', via: 'get'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'posts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
