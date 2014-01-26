@@ -25,6 +25,23 @@ describe PostsController do
     end
   end
 
+  describe 'Atom' do
+    before {
+      english_post = FactoryGirl.create(:english_post)
+      japanese_post = FactoryGirl.create(:japanese_post)
+
+      visit posts_recent_path + '.atom'
+    }
+    it { should have_selector('entry', :count => 2) }
+
+    describe 'list English posts' do
+      before {
+        visit posts_recent_path + '.atom?language=en'
+      }
+      it { should have_selector('entry', :count => 1) }
+    end
+  end
+
   describe 'before logging in' do
     before { visit new_post_path }
     it { should_not have_content 'New post' }

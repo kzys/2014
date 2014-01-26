@@ -13,6 +13,21 @@ class PostsController < ApplicationController
              end
   end
 
+  def recent
+    language = params[:language]
+    @posts = if language
+               Post
+                 .where(language: language)
+                 .order(created_at: :desc).limit(10).load
+             else
+               Post.order(created_at: :desc).limit(10).load
+             end
+
+    respond_to do |format
+      format.atom { render :layout => false }
+    end
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
