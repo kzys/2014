@@ -4,7 +4,19 @@ xml.feed('xmlns' => 'http://www.w3.org/2005/Atom') do
   # TODO
   xml.title('Blog14')
   xml.id(root_url)
-  xml.link('rel' => 'self', 'href' => url_for(only_path: false, format: 'atom'))
+
+  begin
+    # params contain :controller, :action, ... but they are not required in
+    # this context
+    language = params[:language]
+    known_params = if language
+                     { language: language }
+                   else
+                     nil
+                   end
+    href = url_for(only_path: false, format: 'atom', params: known_params)
+    xml.link('rel' => 'self', 'href' => href)
+  end
 
   Author.all.each do |author|
     xml.author { xml.name(author.name) }
@@ -20,4 +32,3 @@ xml.feed('xmlns' => 'http://www.w3.org/2005/Atom') do
     end
   end
 end
-

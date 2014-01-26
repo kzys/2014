@@ -39,6 +39,7 @@ describe PostsController do
         visit posts_recent_path + '.atom?language=en'
       }
       it { should have_selector('entry', :count => 1) }
+      it { should have_selector('link[rel="self"]') }
     end
   end
 
