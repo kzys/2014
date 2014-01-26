@@ -9,4 +9,19 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :post do
+    title 'Hello'
+    content 'hello world'
+
+    association :author, factory: :author
+
+    factory :english_post do
+      language 'en'
+    end
+
+    factory :japanese_post do
+      language 'ja'
+    end
+  end
 end

@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order(created_at: :desc).load
+    language = params[:language]
+    @posts = if language
+               Post.where(language: language).order(created_at: :desc).load
+             else
+               Post.order(created_at: :desc).load
+             end
   end
 
   # GET /posts/1

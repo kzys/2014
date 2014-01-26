@@ -8,6 +8,23 @@ describe PostsController do
     it { should have_content 'Powered by Rails' }
   end
 
+  describe 'list posts' do
+    before {
+      english_post = FactoryGirl.create(:english_post)
+      japanese_post = FactoryGirl.create(:japanese_post)
+
+      visit posts_path
+    }
+    it { should have_selector('article', :count => 2) }
+
+    describe 'list English posts' do
+      before {
+        visit posts_path + '?language=en'
+      }
+      it { should have_selector('article', :count => 1) }
+    end
+  end
+
   describe 'before logging in' do
     before { visit new_post_path }
     it { should_not have_content 'New post' }
