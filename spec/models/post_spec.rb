@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 describe Post do
-  before { @post = Post.new }
+  before {
+    @post = Post.new
+    @post.title = 'hello'
+    @post.content = 'hello world'
+  }
 
   subject { @post }
 

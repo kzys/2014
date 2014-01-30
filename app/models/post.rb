@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  validates :title, presence: true
+  validates :content, presence: true
+
   CommonLanguages = Hash[
                          ISO_639::ISO_639_1.map do |ary|
                            [ ary[2], ary[3] ]
