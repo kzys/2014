@@ -36,10 +36,30 @@ describe Post do
     end
   end
 
-  describe 'known languages' do
-    subject { Post::CommonLanguages }
+  describe 'languages' do
+    describe 'all' do
+      subject { Post.all_languages }
+      it { should include('en') }
+      it { should include('ja') }
+    end
 
-    it { should include('en') }
-    it { should include('ja') }
+    describe 'used_languages' do
+      it "doesn't return anything by default" do
+        expect(Post.used_languages).to eq([])
+      end
+
+      it 'returns used languages in the database' do
+        FactoryGirl.create(:japanese_post)
+        expect(Post.used_languages).to eq(['ja'])
+
+        FactoryGirl.create(:english_post)
+        expect(Post.used_languages).to eq(['ja', 'en'])
+
+        expect do
+          FactoryGirl.create(:english_post)
+        end.to(change(Post, :count).by(1))
+        expect(Post.used_languages).to eq(['ja', 'en'])
+      end
+    end
   end
 end

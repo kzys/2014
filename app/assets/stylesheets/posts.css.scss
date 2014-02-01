@@ -50,6 +50,17 @@ header, footer {
     }
 }
 
+#atom {
+    padding: 1em 0;
+    text-align: right;
+
+    p {
+        font-size: 80%;
+        margin: 0;
+        padding: 0;
+    }
+}
+
 article {
     padding: 0 1em;
 
@@ -84,6 +95,10 @@ article {
         margin-left: -0.4em;
         font: 2em/1 Georgia serif;
     }
+}
+
+atom a {
+     
 }
 
 article + article {

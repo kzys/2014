@@ -1,4 +1,17 @@
 <% provide(:title, Author.all.map do |author| author.name end.join(', ')) %>
+
+<div id="atom">
+  <div class="container">
+    <p>
+      <%= link_to('Atom', posts_recent_url(:format => :atom)) %>
+      <% Post.used_languages.each do |lang| %>
+      <%= link_to("Atom (#{Post.all_languages[lang]})", posts_recent_url(:format => :atom, :language => lang)) %>
+      <% end %>
+    </p>
+  </div>
+</div>
+
+</div>
 <div id="posts">
   <div class="container">
     <% @posts.each do |post| %>
