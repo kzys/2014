@@ -4,6 +4,7 @@ xml.feed('xmlns' => 'http://www.w3.org/2005/Atom') do
   # TODO
   xml.title('Blog14')
   xml.id(root_url)
+  xml.link('href' => root_url)
 
   begin
     # params contain :controller, :action, ... but they are not required in
