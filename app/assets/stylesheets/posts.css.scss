@@ -1,7 +1,13 @@
 @import url(//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css);
 @import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css);
 
+html {
+  height: 100%;
+}
+
 body {
+    height: 100%;
+
     font-family: "Helvetica Neue", sans-serif;
     color: #555;
     margin: 0;
@@ -10,7 +16,8 @@ body {
 }
 
 #container {
-    overflow: hidden;
+    overflow-x: hidden;
+    height: 100%;
 }
 
 abbr[title] {
@@ -120,6 +127,10 @@ header {
 main {
     background: #fff;
     width: 100%;
+
+    height: auto;
+    min-height: 100%;
+
     position: relative;
     z-index: 100;
     overflow: hidden;
