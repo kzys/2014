@@ -3,10 +3,10 @@
 
 body {
     font-family: "Helvetica Neue", sans-serif;
-    color: #333;
+    color: #555;
     margin: 0;
     padding: 0;
-    background: #f0f0f0;
+    background: #333;
 }
 
 #container {
@@ -31,7 +31,7 @@ a:hover {
 
 .container {
     max-width: 35em;
-    padding: 0 .5em;
+    padding: 0 1em;
     margin: 0 auto;
 }
 
@@ -96,13 +96,18 @@ header {
     transition: left 0.2s ease 0s;
     left: 0px;
 
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     border-bottom: 1px solid #ccc;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
 
     .bar {
         line-height: 3em;
         padding: 0 1em;
     }
+}
+
+#posts {
+  padding-top: 3em;
 }
 
 main {
@@ -111,25 +116,16 @@ main {
     position: relative;
     z-index: 100;
     overflow: hidden;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
 
     transition: margin-left 0.2s ease 0s;
 }
 
-#atom {
-    padding: 1em 0;
-    text-align: right;
-
-    p {
-        font-size: 80%;
-        margin: 0;
-        padding: 0;
-    }
-}
-
 article {
-    padding: 0 .5em;
+    padding: 0;
 
     h2 {
+        color: #000;
         font-size: 1em;
         margin-bottom: 0;
 
@@ -156,10 +152,6 @@ article {
     }
 }
 
-atom a {
-
-}
-
 article + article {
-    border-top: 1px solid #999;
+    border-top: 1px solid #ccc;
 }
