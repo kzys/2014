@@ -19,8 +19,9 @@
   <nav>
     <ul>
       <li>
-        <i class="fa fa-home"></i>
-        <%= link_to 'Home', root_path %>
+        <%= link_to root_path do %>
+          <i class="fa fa-home"></i> Home
+        <% end %>
       </li>
 
       <li>
@@ -35,15 +36,21 @@
       </li>
 
       <% if current_author %>
-      <li><%= link_to 'New Post', new_post_path %></li>
       <li>
-        <i class="fa fa-sign-in"></i>
-        <%= link_to 'Logout', logout_path %>
+        <%= link_to new_post_path do %>
+          <i class="fa fa-pencil"></i> New Post
+        <% end %>
+      </li>
+      <li>
+        <%= link_to logout_path do %>
+          <i class="fa fa-sign-in"></i> Logout
+        <% end %>
       </li>
       <% else %>
       <li>
-        <i class="fa fa-sign-in"></i>
-        <%= link_to 'Login', login_path %>
+        <%= link_to login_path do %>
+          <i class="fa fa-sign-in"></i> Login
+        <% end %>
       </li>
       <% end %>
     </ul>

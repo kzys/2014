@@ -31,7 +31,7 @@ a:hover {
 
 .container {
     max-width: 35em;
-    padding: 0 1em;
+    padding: 0 .5em;
     margin: 0 auto;
 }
 
@@ -72,13 +72,14 @@ nav {
         li {
             color: #ccc;
             list-style: none;
-            line-height: 2em;
+            line-height: 3em;
             border-bottom: 1px solid #333;
         }
         a {
             font-size: 90%;
             color: inherit !important;
             text-decoration: none;
+            display: block;
         }
     }
 
@@ -99,7 +100,7 @@ header {
     border-bottom: 1px solid #ccc;
 
     .bar {
-        line-height: 2em;
+        line-height: 3em;
         padding: 0 1em;
     }
 }
@@ -126,10 +127,10 @@ main {
 }
 
 article {
-    padding: 0 1em;
+    padding: 0 .5em;
 
     h2 {
-        font-size: 2em;
+        font-size: 1em;
         margin-bottom: 0;
 
         a {
@@ -148,21 +149,15 @@ article {
     }
 
     blockquote {
-        margin: 0 -1em;
-        padding: 0 1em;
+        margin: 0 -0.5em;
+        padding: 0 .5em;
         overflow: hidden;
         background: #ffc;
-    }
-    blockquote:before {
-        content: "\201C";
-        position: absolute;
-        margin-left: -0.4em;
-        font: 2em/1 Georgia serif;
     }
 }
 
 atom a {
-     
+
 }
 
 article + article {
