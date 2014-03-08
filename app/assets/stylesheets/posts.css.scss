@@ -104,11 +104,12 @@ header {
       color: inherit !important;
       display: block;
       float: left;
+      padding: 0 1em;
     }
 
     .bar {
         line-height: 3em;
-        padding: 0 1em;
+        padding: 0;
     }
 }
 
