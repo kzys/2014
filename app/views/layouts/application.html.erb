@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title><%= yield(:title) || 'Blog14' %></title>
 
   <% if controller.class == PostsController %>
@@ -14,6 +14,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="container">
+
   <nav>
     <ul>
       <li>
@@ -46,11 +48,11 @@
       <% end %>
     </ul>
   </nav>
-  <main>
-    <header>
-      <div class="bar"><i id="hamburger" class="fa fa-bars"></i></div>
-    </header>
 
+  <main>
+  <header>
+    <div class="bar"><i id="hamburger" class="fa fa-bars"></i></div>
+  </header>
   <div id="flash">
     <% flash.keys.each do |k| %>
     <div class="alert alert-<%= k %>"><%= flash[k] %></div>
@@ -69,5 +71,6 @@
   </footer>
   </main>
 
+  </div>
 </body>
 </html>

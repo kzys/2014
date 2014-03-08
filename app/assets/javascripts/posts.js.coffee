@@ -2,13 +2,22 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+MenuWidth = 160
+
 initialize = () ->
   document.getElementById('hamburger').addEventListener('click', () ->
+    container = document.getElementById('container')
+    header = document.getElementsByTagName('header')[0]
     main = document.getElementsByTagName('main')[0]
-    main.style.transition = 'margin-left 0.2s ease 0s'
+
     if main.offsetLeft == 0
-      main.style.marginLeft = '200px'
+      header.style.left = MenuWidth + 'px'
+      main.style.width = main.offsetWidth + 'px'
+      main.style.marginLeft = MenuWidth + 'px'
+      container.style.width = main.offsetWidth + 'px'
+      container.style.height = main.offsetHeight + 'px'
     else
+      header.style.left = '0px'
       main.style.marginLeft = '0px'
   )
 

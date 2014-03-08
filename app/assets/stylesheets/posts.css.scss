@@ -7,7 +7,10 @@ body {
     margin: 0;
     padding: 0;
     background: #f0f0f0;
-    overflow-x: hidden;
+}
+
+#container {
+    overflow: hidden;
 }
 
 abbr[title] {
@@ -87,7 +90,10 @@ nav {
 header {
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 1000;
+
+    transition: left 0.2s ease 0s;
+    left: 0px;
 
     background: #fff;
     border-bottom: 1px solid #ccc;
@@ -102,6 +108,10 @@ main {
     background: #fff;
     width: 100%;
     position: relative;
+    z-index: 100;
+    overflow: hidden;
+
+    transition: margin-left 0.2s ease 0s;
 }
 
 #atom {
