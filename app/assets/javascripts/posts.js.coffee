@@ -4,17 +4,21 @@
 
 MenuWidth = 160
 
-initialize = () ->
-  document.getElementById('hamburger').addEventListener('click', () ->
-    header = document.getElementsByTagName('header')[0]
-    main = document.getElementsByTagName('main')[0]
+toggleLeftMenu = () ->
+  header = document.getElementsByTagName('header')[0]
+  main = document.getElementsByTagName('main')[0]
 
-    if main.offsetLeft == 0
-      header.style.left = MenuWidth + 'px'
-      main.style.marginLeft = MenuWidth + 'px'
-    else
-      header.style.left = '0px'
-      main.style.marginLeft = '0px'
+  if main.offsetLeft == 0
+    header.style.left = MenuWidth + 'px'
+    main.style.marginLeft = MenuWidth + 'px'
+  else
+    header.style.left = '0px'
+    main.style.marginLeft = '0px'
+
+initialize = () ->
+  document.getElementById('hamburger').addEventListener('click', (event) ->
+    event.preventDefault()
+    toggleLeftMenu()
   )
 
 document.addEventListener('page:change', initialize)
