@@ -1,4 +1,5 @@
 @import url(//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css);
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css);
 
 body {
     font-family: "Helvetica Neue", sans-serif;
@@ -6,6 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background: #f0f0f0;
+    overflow-x: hidden;
 }
 
 abbr[title] {
@@ -35,12 +37,10 @@ a:hover {
     background: #fff;
 }
 
-header, footer {
+footer {
     padding: 1em 0;
-    background: #f0f0f0;
 
     p {
-        font-size: 80%;
         margin: 0;
         padding: 0;
     }
@@ -48,6 +48,60 @@ header, footer {
     a {
         color: inherit !important;
     }
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 0;
+
+    i.fa { margin-right: 1em; }
+
+    span.header {
+      font-size: 90%;
+    }
+
+    ul {
+        background: #333;
+        margin: 0;
+        padding: 0 1em;
+
+        li {
+            color: #ccc;
+            list-style: none;
+            line-height: 2em;
+            border-bottom: 1px solid #333;
+        }
+        a {
+            font-size: 90%;
+            color: inherit !important;
+            text-decoration: none;
+        }
+    }
+
+    ul.submenu {
+      padding: 0 2em;
+    }
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+
+    .bar {
+        line-height: 2em;
+        padding: 0 1em;
+    }
+}
+
+main {
+    background: #fff;
+    width: 100%;
+    position: relative;
 }
 
 #atom {

@@ -14,20 +14,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if controller.class != SessionsController %>
-  <header>
-    <div class="container">
-      <p>
-        <% if current_author %>
-        <%= link_to 'New Post', new_post_path %>
+  <nav>
+    <ul>
+      <li>
+        <i class="fa fa-home"></i>
+        <%= link_to 'Home', root_path %>
+      </li>
+
+      <li>
+        <i class="fa fa-rss"></i>
+        <span class="header">Atom</span>
+        <ul class="submenu">
+          <li><%= link_to('All', posts_recent_url(:format => :atom)) %></li>
+          <% Post.used_languages.each do |lang| %>
+          <li><%= link_to(Post.all_languages[lang], posts_recent_url(:format => :atom, :language => lang)) %></li>
+          <% end %>
+        </ul>
+      </li>
+
+      <% if current_author %>
+      <li><%= link_to 'New Post', new_post_path %></li>
+      <li>
+        <i class="fa fa-sign-in"></i>
         <%= link_to 'Logout', logout_path %>
-        <% else %>
+      </li>
+      <% else %>
+      <li>
+        <i class="fa fa-sign-in"></i>
         <%= link_to 'Login', login_path %>
-        <% end %>
-      </p>
-    </div>
-  </header>
-  <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </nav>
+  <main>
+    <header>
+      <div class="bar"><i id="hamburger" class="fa fa-bars"></i></div>
+    </header>
 
   <div id="flash">
     <% flash.keys.each do |k| %>
@@ -45,6 +67,7 @@
       </p>
     </div>
   </footer>
+  </main>
 
 </body>
 </html>
