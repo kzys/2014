@@ -21,4 +21,4 @@ initialize = () ->
       main.style.marginLeft = '0px'
   )
 
-document.addEventListener('DOMContentLoaded', initialize)
+document.addEventListener('page:change', initialize)
