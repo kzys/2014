@@ -37,7 +37,7 @@ a:hover {
 }
 
 .container {
-    max-width: 35em;
+    max-width: 45em;
     padding: 0 1em;
     margin: 0 auto;
 }
@@ -144,7 +144,7 @@ article {
 
     h2 {
         color: #000;
-        font-size: 1em;
+        font-size: 2em;
         margin-bottom: 0;
 
         a {
@@ -167,6 +167,17 @@ article {
         padding: 0 .5em;
         overflow: hidden;
         background: #ffc;
+    }
+
+    code {
+        font-size: 95%;
+        background: #ffd;
+    }
+
+    pre {
+        font-size: 95%;
+        background: #ffd;
+        padding: 1em;
     }
 }
 
