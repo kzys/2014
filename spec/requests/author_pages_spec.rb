@@ -1,8 +1,30 @@
 require 'spec_helper'
 
+def login(author)
+  visit login_path
+  fill_in 'Email', with: author.email
+  fill_in 'Password', with: author.password
+  click_button 'Login'
+end
+
 describe 'Author pages' do
   subject do
     page
+  end
+
+  describe 'new' do
+    before do
+      login FactoryGirl.create(:admin)
+      visit new_author_path
+      fill_in 'Email', with: "bob@example.com"
+      fill_in 'Name', with: 'Bob'
+      fill_in 'Password', with: 'passw0rd'
+      fill_in 'Password confirmation', with: 'passw0rd'
+    end
+
+    it 'should create an author' do
+      expect { click_button 'Create Author' }.to change(Author, :count).by 1
+    end
   end
 
   describe 'show' do
