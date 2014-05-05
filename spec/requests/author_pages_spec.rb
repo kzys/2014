@@ -17,8 +17,8 @@ describe 'Author pages' do
   describe 'index' do
     before do
       Author.delete_all
-      5.times do |index|
-        FactoryGirl.create(:author, email: "alice#{index}@example.com")
+      5.times do
+        FactoryGirl.create(:author)
       end
       visit authors_path
     end
