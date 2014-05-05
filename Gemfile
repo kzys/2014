@@ -67,3 +67,6 @@ group :test do
   gem 'capybara'
   gem 'simplecov', :require => false
 end
+
+gem 'newrelic_rpm'
+
