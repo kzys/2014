@@ -23,7 +23,7 @@
 
   <div class="pair">
     <%= f.label :language %>
-    <%= f.select :language, Post::CommonLanguages.keys.map {|k| [Post::CommonLanguages[k], k] } %>
+    <%= f.select :language, Post.all_languages.keys.map {|k| [Post.all_languages[k], k] } %>
   </div>
 
   <div class="actions">

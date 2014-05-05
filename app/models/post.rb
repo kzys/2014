@@ -17,15 +17,7 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
   validates :content, presence: true
-
-  CommonLanguages = Hash[
-                         ISO_639::ISO_639_1.map do |ary|
-                           [ ary[2], ary[3] ]
-                         end.select do |ary|
-                           ary.first != ''
-                         end
-                        ]
-  validates :language, inclusion: { in: CommonLanguages.keys }
+  validates :language, inclusion: { in: all_languages.keys }
 
   belongs_to :author
   validates :author, presence: true
