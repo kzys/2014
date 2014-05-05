@@ -2,12 +2,8 @@ language: ruby
 rvm:
   - 2.1.1
 
-env:
-  - folder=spec/models
-  - folder=spec/requests
-
 script:
   - bundle exec rake db:schema:load
   - bundle exec rake db:test:prepare
-  - bundle exec rspec $folder
+  - bundle exec rspec
 
