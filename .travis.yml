@@ -7,3 +7,10 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rspec
 
+deploy:
+  provider: heroku
+  api_key:
+    secure: Jzm40TAa6terg4DiR8iUo89x0QxDq4yAp9eA7MeWG1fF58ZvPTstKPO69ZzoADH+aYaxm0PIKGQ7eeD+Mk07FaE0gtc+24umWw6YisebwsiVwDmIXcdTv4pneURgZisjI/o9RhHO7oTdP29tMlHiYELlh/1cEZWwPt/PP+Nyu5c=
+  app: calm-waters-1949
+  on:
+    repo: kzys/2014
