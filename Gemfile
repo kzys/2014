@@ -9,6 +9,7 @@ group :development do
   gem 'sqlite3'
   gem 'travis'
   gem 'travis-lint'
+  gem 'coveralls', require: false
 end
 
 # Heroku
