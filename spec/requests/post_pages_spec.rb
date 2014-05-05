@@ -72,5 +72,59 @@ describe PostsController do
         end.to change(Post, :count).by(1)
       end
     end
+
+    describe 'creating an invalid post' do
+      before do
+        fill_in 'Title', with: 'Hello'
+      end
+
+      it 'should create a post' do
+        expect { click_button 'Create Post' }.to change(Post, :count).by 0
+      end
+    end
+
+    describe 'updating a post' do
+      before do
+        english_post = FactoryGirl.create(:english_post)
+        visit edit_post_path(english_post)
+        fill_in 'Title', with: 'I will update the post'
+        click_button 'Update Post'
+      end
+
+      it { should have_content 'I will update the post' }
+    end
+
+    describe 'updating an invalid post' do
+      before do
+        english_post = FactoryGirl.create(:english_post)
+        visit edit_post_path(english_post)
+        fill_in 'Title', with: ''
+        click_button 'Update Post'
+      end
+
+      it { should_not have_content 'I will update the post' }
+    end
+
+    describe 'deleting a post' do
+      before do
+        fill_in 'Title', with: 'Hello'
+        fill_in 'Content', with: 'hello world.'
+        click_button 'Create Post'
+      end
+
+      it 'should delete a post' do
+        expect {  click_link 'Destroy' }.to change(Post, :count).by -1
+      end
+    end
+
+    describe 'accesing a post with an invalid link' do
+      it 'should throw an exception' do
+        post = FactoryGirl.create(:english_post)
+        date = post.created_at.yesterday
+        permalink = "/posts/#{date.month}/#{date.day}/#{post.id}"
+
+        expect { visit permalink }.to raise_error ActiveRecord::RecordNotFound
+      end
+    end
   end
 end
