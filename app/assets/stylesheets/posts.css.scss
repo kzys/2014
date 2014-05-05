@@ -160,20 +160,20 @@ article {
     }
 
     blockquote {
-        margin: 0 -0.5em;
-        padding: 0 .5em;
-        overflow: hidden;
-        background: #ffc;
+        font-size: 95%;
+        background: #ffd;
+        margin: 0;
+        padding: 1em;
     }
 
     code {
         font-size: 95%;
-        background: #ffd;
+        background: #f0f0f0;
     }
 
     pre {
         font-size: 95%;
-        background: #ffd;
+        background: #f0f0f0;
         padding: 1em;
     }
 }
