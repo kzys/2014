@@ -18,12 +18,20 @@ describe 'Author pages' do
       visit new_author_path
       fill_in 'Email', with: "bob@example.com"
       fill_in 'Name', with: 'Bob'
-      fill_in 'Password', with: 'passw0rd'
-      fill_in 'Password confirmation', with: 'passw0rd'
     end
 
     it 'should create an author' do
+      fill_in 'Password', with: 'passw0rd'
+      fill_in 'Password confirmation', with: 'passw0rd'
+
       expect { click_button 'Create Author' }.to change(Author, :count).by 1
+    end
+
+    it 'should not create an invalid author' do
+      fill_in 'Password', with: 'passw0rd'
+      fill_in 'Password confirmation', with: 'password'
+
+      expect { click_button 'Create Author' }.to change(Author, :count).by 0
     end
   end
 
