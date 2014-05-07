@@ -37,13 +37,29 @@ describe 'Author pages' do
 
   describe 'delete' do
     before do
-      author_to_delete = FactoryGirl.create(:author)
-      login FactoryGirl.create(:admin)
-      visit author_path(author_to_delete)
+      @author_to_delete = FactoryGirl.create(:author)
     end
 
-    it 'should delete an author' do
-      expect { click_link 'Destroy' }.to change(Author, :count).by -1
+    subject do
+      visit author_path(@author_to_delete)
+      click_link 'Destroy'
+      Author.find_by(id: @author_to_delete.id)
+    end
+
+    context 'when logged in' do
+      before do
+        login FactoryGirl.create(:author)
+      end
+
+      it { should be_true }
+    end
+
+    context 'when logged in as an administrator' do
+      before do
+        login FactoryGirl.create(:admin)
+      end
+
+      it { should_not be_true }
     end
   end
 
