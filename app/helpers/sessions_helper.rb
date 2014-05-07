@@ -15,7 +15,7 @@ module SessionsHelper
   end
 
   def logout
-    author = current_author
+    author = self.current_author
 
     if author
       token_digest = Author.token_digest(Author.create_remember_token)

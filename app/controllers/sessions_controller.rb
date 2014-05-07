@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       token = Author.create_remember_token
       cookies.permanent[:remember_token] = token
       author.update_attribute(:remember_token, Author.token_digest(token))
-      @current_author = author
+      self.current_author = author
 
       redirect_to new_post_path
     else
