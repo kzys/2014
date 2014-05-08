@@ -35,6 +35,37 @@ describe 'Author pages' do
     end
   end
 
+  describe 'update' do
+    before do
+      @author = FactoryGirl.create(:author, name: 'Alice')
+      @new_email = nil
+    end
+
+    subject do
+      visit edit_author_path(@author)
+      fill_in 'Email', with: @new_email
+      click_button 'Update Author'
+
+      Author.find_by(id: @author.id).email
+    end
+
+    context 'when the name is valid' do
+      before do
+        @new_email = 'valid@example.com'
+      end
+
+      it { should eq(@new_email) }
+    end
+
+    context 'when the name is invalid' do
+      before do
+        @new_email = 'invalid.example.com'
+      end
+
+      it { should_not eq(@new_email) }
+    end
+  end
+
   describe 'delete' do
     before do
       @author_to_delete = FactoryGirl.create(:author)
