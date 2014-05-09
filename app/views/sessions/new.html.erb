@@ -1,27 +1,21 @@
-<div id="login">
-  <div class="container">
-    <h1>Login</h1>
-    <%= form_for(:session, url: sessions_path) do |f| %>
+<% content_for(:title, 'Login') %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Login</h1>
+      <%= form_for(:session, url: sessions_path) do |f| %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, placeholder: 'alice@example.com', class: 'form-control' %>
+        </div>
 
-    <table>
-      <tr>
-        <td><%= f.label :email %></td>
-        <td><%= f.text_field :email %></td>
-      </tr>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
 
-      <tr>
-        <td><%= f.label :password %></td>
-        <td><%= f.password_field :password %></td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td>
-          <%= f.submit 'Login' %>
-        </td>
-      </tr>
-    </table>
-
-    <% end %>
+        <%= f.submit 'Login', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
 </div>
