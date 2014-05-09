@@ -71,3 +71,4 @@ group :test do
 end
 
 gem 'newrelic_rpm'
+gem 'rubocop', require: false
