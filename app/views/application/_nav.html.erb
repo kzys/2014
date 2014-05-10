@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse"
         data-target="#global-header">
-        <span class="glyphicon glyphicon-th-list"></span>
+        <i class="fa fa-bars"></i>
       </button>
 
       <%= link_to root_path, class: 'navbar-brand' do %>
@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            Atom <span class="caret"></span>
+            <i class="fa fa-rss"></i> Atom <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><%= link_to('Mixed', posts_recent_url(:format => :atom)) %></li>
