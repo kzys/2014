@@ -1,15 +1,7 @@
-@import url(//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css);
-@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css);
+@import "bootstrap";
 
-html {
-}
-
-body {
-    font-family: "Helvetica Neue", sans-serif;
-    color: #555;
-    margin: 0;
-    padding: 0;
-    background: #333;
+blockquote {
+  font-size: $font-size-base;
 }
 
 #container {
@@ -131,7 +123,6 @@ main {
     position: relative;
     z-index: 100;
     overflow: hidden;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
 
     transition: margin-left 0.2s ease 0s;
 }
@@ -141,7 +132,6 @@ article {
 
     h2 {
         color: #000;
-        font-size: 2em;
         margin-bottom: 0;
 
         a {
@@ -152,29 +142,7 @@ article {
 
     .meta {
         color: #999;
-        font-size: 80%;
-    }
-
-    p {
-        line-height: 1.5;
-    }
-
-    blockquote {
-        font-size: 95%;
-        background: #ffd;
-        margin: 0;
-        padding: 1em;
-    }
-
-    code {
-        font-size: 95%;
-        background: #f0f0f0;
-    }
-
-    pre {
-        font-size: 95%;
-        background: #f0f0f0;
-        padding: 1em;
+        margin-bottom: $padding-small-horizontal;
     }
 }
 

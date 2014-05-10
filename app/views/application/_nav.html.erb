@@ -1,21 +1,20 @@
-<nav>
-  <ul>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="hamburger">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="hamburger">
     <li>
       <%= link_to root_path do %>
         <i class="fa fa-home"></i> Home
       <% end %>
     </li>
 
-    <li>
-      <i class="fa fa-rss"></i>
-      <span class="header">Atom</span>
-      <ul class="submenu">
-        <li><%= link_to('All', posts_recent_url(:format => :atom)) %></li>
-        <% Post.used_languages.each do |lang| %>
-        <li><%= link_to(Post.all_languages[lang], posts_recent_url(:format => :atom, :language => lang)) %></li>
-        <% end %>
-      </ul>
-    </li>
+    <li class="divider"></li>
+    <li><%= link_to('Atom - All', posts_recent_url(:format => :atom)) %></li>
+    <% Post.used_languages.each do |lang| %>
+    <li><%= link_to("Atom - #{Post.all_languages[lang]}", posts_recent_url(:format => :atom, :language => lang)) %></li>
+    <% end %>
+    <li class="divider"></li>
 
     <% if current_author %>
     <li>
@@ -36,4 +35,4 @@
     </li>
     <% end %>
   </ul>
-</nav>
+</div>

@@ -16,6 +16,7 @@ toggleLeftMenu = () ->
     main.style.marginLeft = '0px'
 
 initialize = () ->
+  return
   hamburger = document.getElementById('hamburger')
   return unless hamburger
   hamburger.addEventListener('click', (event) ->

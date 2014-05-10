@@ -19,14 +19,6 @@
   <%= render 'nav' unless controller.kind_of?(SessionsController) %>
 
   <main>
-  <% if controller.kind_of?(SessionsController) %>
-  <% else %>
-  <header>
-    <div class="bar">
-      <a id="hamburger" href="#"><i class="fa fa-bars"></i></a>
-    </div>
-  </header>
-  <% end %>
   <div id="flash">
     <% flash.keys.each do |k| %>
     <div class="alert alert-<%= k %>"><%= flash[k] %></div>
