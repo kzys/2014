@@ -14,29 +14,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= controller.class.name.underscore.dasherize %>">
-  <div id="container">
-
-  <%= render 'nav' unless controller.kind_of?(SessionsController) %>
-
-  <main>
-  <div id="flash">
-    <% flash.keys.each do |k| %>
-    <div class="alert alert-<%= k %>"><%= flash[k] %></div>
-    <% end %>
-  </div>
-  <%= yield %>
-  <footer>
-    <div class="container">
-      <p>
-        Powered by
-        <a href="http://rubyonrails.org/">Rails</a>
-        <%= Rails::VERSION::STRING %> and
-        <a href="https://www.ruby-lang.org/">Ruby</a> <%= RUBY_VERSION %>
-      </p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= render 'nav' unless controller.kind_of?(SessionsController) %>
+      </div>
     </div>
-  </footer>
-  </main>
 
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="flash">
+          <% flash.keys.each do |k| %>
+          <div class="alert alert-<%= k %>"><%= flash[k] %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row"><%= yield %></div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <footer>
+          <p>
+            Powered by
+            <a href="http://rubyonrails.org/">Rails</a>
+            <%= Rails::VERSION::STRING %> and
+            <a href="https://www.ruby-lang.org/">Ruby</a> <%= RUBY_VERSION %>
+          </p>
+        </div>
+      </footer>
+    </div>
   </div>
 </body>
 </html>

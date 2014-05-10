@@ -2,8 +2,6 @@
 
 <% if notice %><div id="notice"><%= notice %></div><% end %>
 
-<div id="posts">
-  <div class="container">
-    <article><%= render 'post', :post => @post %></article>
-  </div>
+<div class="col-md-8">
+  <article><%= render 'post', :post => @post %></article>
 </div>

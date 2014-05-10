@@ -1,9 +1,7 @@
 <% provide(:title, Author.all.map do |author| author.name end.join(', ')) %>
 
-<div id="posts">
-  <div class="container">
-    <% @posts.each do |post| %>
-    <article><%= render 'post', :post => post %></article>
-    <% end %>
-  </div>
+<div class="col-md-8">
+  <% @posts.each do |post| %>
+  <article><%= render 'post', :post => post %></article>
+  <% end %>
 </div>

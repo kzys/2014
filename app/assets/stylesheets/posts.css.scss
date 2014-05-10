@@ -49,41 +49,6 @@ footer {
     }
 }
 
-nav {
-    position: fixed;
-    width: 100%;
-    z-index: 0;
-
-    i.fa { margin-right: 1em; }
-
-    span.header {
-      font-size: 90%;
-    }
-
-    ul {
-        background: #333;
-        margin: 0;
-        padding: 0 1em;
-
-        li {
-            color: #ccc;
-            list-style: none;
-            line-height: 3em;
-            border-bottom: 1px solid #333;
-        }
-        a {
-            font-size: 90%;
-            color: inherit !important;
-            text-decoration: none;
-            display: block;
-        }
-    }
-
-    ul.submenu {
-      padding: 0 2em;
-    }
-}
-
 header {
     position: fixed;
     width: 100%;
