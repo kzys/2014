@@ -11,22 +11,25 @@
     </div>
   <% end %>
 
-  <div class="pair">
+  <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, :class => 'form-control' %>
   </div>
 
-  <div class="pair">
+  <div class="form-group">
     <%= f.label :content %>
     <%= f.text_area :content, :class => 'form-control', :size => '80x20' %>
   </div>
 
-  <div class="pair">
+  <div class="form-group">
     <%= f.label :language %>
-    <%= f.select :language, Post.all_languages.keys.map {|k| [Post.all_languages[k], k] } %>
+    <%=
+      languages = Post.all_languages.keys.map {|k| [Post.all_languages[k], k] }
+      f.select(:language, languages, {}, { :class => 'form-control' })
+    %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit(class: 'btn btn-primary') %>
   </div>
 <% end %>
