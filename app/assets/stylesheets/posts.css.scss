@@ -115,34 +115,3 @@ article {
 article + article {
     border-top: 1px solid #ccc;
 }
-
-#posts-new {
-  padding: 3em 1em 0 0.5em;
-
-  h1 {
-    font-size: 1em;
-    margin: 0;
-    line-height: 2em;
-  }
-
-  .pair {
-    margin: 1em 0;
-  }
-
-  input {
-    width: 100%;
-  }
-
-  input[type="submit"] {
-    background: linear-gradient(#444, #333);
-    line-height: 3em;
-    color: #eee;
-    border-radius: 4px;
-    text-shadow: 1px -1px 0 rgba(0,0,0,1);
-    border: none;
-  }
-
-  textarea {
-    width: 100%;
-  }
-}
