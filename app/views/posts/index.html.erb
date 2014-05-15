@@ -4,4 +4,6 @@
   <% @posts.each do |post| %>
   <article><%= render 'post', :post => post %></article>
   <% end %>
+
+  <%= paginate @posts %>
 </div>

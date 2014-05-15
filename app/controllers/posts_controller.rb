@@ -6,11 +6,12 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     language = params[:language]
-    @posts = if language
-               Post.where(language: language).order(created_at: :desc).load
+    query = if language
+               Post.where(language: language).order(created_at: :desc)
              else
-               Post.order(created_at: :desc).load
+               Post.order(created_at: :desc)
              end
+    @posts = query.page(params[:page])
   end
 
   def recent

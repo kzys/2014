@@ -7,6 +7,7 @@ gem 'rails', '4.1.0'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'kaminari'
 
 group :development do
   gem 'sqlite3'
