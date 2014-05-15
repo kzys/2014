@@ -8,6 +8,17 @@ describe PostsController do
     it { should have_content 'Powered by Rails' }
   end
 
+  describe 'No pagination' do
+    before do
+      20.times do
+        FactoryGirl.create(:post)
+      end
+      visit posts_path
+    end
+
+    it { should have_selector('article', :count => 20) }
+  end
+
   describe 'list posts' do
     before {
       english_post = FactoryGirl.create(:english_post)

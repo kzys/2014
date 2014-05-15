@@ -13,15 +13,12 @@ FactoryGirl.define do
     end
   end
 
-  factory :post do
+  factory :post, aliases: [:english_post] do
     title 'Hello'
     content 'hello world'
+    language 'en'
 
     association :author, factory: :author
-
-    factory :english_post do
-      language 'en'
-    end
 
     factory :japanese_post do
       language 'ja'
