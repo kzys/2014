@@ -49,9 +49,9 @@ describe PostsController do
   end
 
   describe 'after logging in' do
-    author = FactoryGirl.create(:author)
-
     before {
+      author = FactoryGirl.create(:author)
+
       visit login_path
       fill_in 'Email', with: author.email
       fill_in 'Password', with: author.password

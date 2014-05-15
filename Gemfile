@@ -69,6 +69,7 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'simplecov', :require => false
+  gem 'database_cleaner'
 end
 
 gem 'newrelic_rpm'

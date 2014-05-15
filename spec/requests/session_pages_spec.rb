@@ -2,9 +2,8 @@ require 'spec_helper'
 
 describe SessionsController do
   describe 'login with a valid credential' do
-    author = FactoryGirl.create(:author)
-
     before do
+      author = FactoryGirl.create(:author)
       visit login_path
       fill_in 'Email', with: author.email
       fill_in 'Password', with: author.password
@@ -22,9 +21,8 @@ describe SessionsController do
   end
 
   describe 'login with an invalid credential' do
-    author = FactoryGirl.create(:author)
-
     before do
+      author = FactoryGirl.create(:author)
       visit login_path
       fill_in 'Email', with: author.email
       fill_in 'Password', with: 'invalid_password'
