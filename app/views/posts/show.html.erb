@@ -1,7 +1,5 @@
 <% provide :title, "#{@post.title} - #{@post.author.name}" %>
 
-<% if notice %><div id="notice"><%= notice %></div><% end %>
-
 <div class="col-md-offset-1 col-md-10">
   <article><%= render 'post', :post => @post %></article>
 </div>

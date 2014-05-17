@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def flash_to_bootstrap(key)
+      { 'notice' => 'info' }[key] || key.to_s
+  end
+
   def link_to_post(title, post)
     created_at = post.created_at
     pairs = %w(year month day).map do |s|
